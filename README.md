@@ -110,6 +110,3 @@ The project strengthened my understanding of log forwarding, Windows Security ev
 ## Evidence
 
 Screenshots and sanitized configuration evidence will be stored in the `screenshots/` directory.
-
-No credentials, app passwords, or other secrets should be included in this repository.
-
