@@ -110,3 +110,51 @@ The project strengthened my understanding of log forwarding, Windows Security ev
 ## Evidence
 
 Screenshots and sanitized configuration evidence will be stored in the `screenshots/` directory.
+
+---
+
+## 🔎 Lab Expansion: Linux Monitoring & Endpoint Detection
+
+Expanded the original Windows-based SOC lab to include Linux log collection, endpoint monitoring with Sysmon, controlled attack simulations, and automated security alerting.
+
+### Lab Environment
+
+- **SIEM:** Splunk Enterprise 10.6.1.1
+- **Windows Endpoint:** Windows Server 2022
+- **Endpoint Monitoring:** Sysmon + Splunk Universal Forwarder
+- **Attacker VM:** Kali Linux
+- **Vulnerable Target:** Metasploitable 2
+- **Linux Log Collection:** Syslog over UDP
+- **Alerting:** Scheduled Splunk alerts with Gmail notifications
+
+### Detection Use Cases
+
+| Detection | Evidence |
+|---|---|
+| Repeated Windows failed logins | Windows Security Event ID 4625 |
+| Windows process creation | Sysmon Event ID 1 |
+| Windows process termination | Sysmon Event ID 5 |
+| Repeated Linux SSH failures | Failed password and PAM authentication events |
+
+### Attack Simulation & Investigation
+
+- Performed Nmap service enumeration against the isolated Metasploitable 2 VM.
+- Identified exposed services and reviewed service-version information.
+- Configured Linux syslog forwarding to Splunk.
+- Simulated repeated SSH authentication failures from Kali Linux.
+- Built SPL searches to identify repeated authentication failures by source IP and username.
+- Configured scheduled detections with automated email notifications.
+
+### Documentation & Evidence
+
+See the [Portfolio Expansion](portfolio-expansion/README.md) for the lab architecture, validation results, screenshots, and reusable SPL detection queries.
+
+**Architecture:** [View lab architecture](portfolio-expansion/architecture.png)
+
+**Detection Queries:** [Windows failed logins](portfolio-expansion/detections/windows-repeated-failed-logons.spl) · [Linux SSH failures](portfolio-expansion/detections/metasploitable-ssh-failures.spl) · [Sysmon process creation](portfolio-expansion/queries/sysmon-process-creation.spl)
+
+### Skills Demonstrated
+
+Splunk SIEM · SPL · Windows Event Logging · Sysmon · Linux Syslog · Nmap · Network Enumeration · SSH Authentication Monitoring · Security Alerting · Incident Investigation
+
+---
