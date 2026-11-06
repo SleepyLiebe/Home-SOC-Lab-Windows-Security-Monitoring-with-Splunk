@@ -1,0 +1,1 @@
+index=* earliest=-5m sourcetype="WinEventLog:Security" EventCode=4625 | stats count AS failed_logins by host | where failed_logins >= 3
